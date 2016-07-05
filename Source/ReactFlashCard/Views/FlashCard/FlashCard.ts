@@ -1,0 +1,3 @@
+﻿interface FlashCard {
+    factoids: Factoid[];
+}

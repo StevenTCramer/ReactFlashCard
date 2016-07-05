@@ -23,6 +23,18 @@ namespace HelloWorld
 								"~/Scripts/bootstrap.js",
 								"~/Scripts/respond.js"));
 
+			bundles.Add(new ScriptBundle("~/bundles/flashCards").Include(
+								"~/Views/FlashCard/Factoid.js",
+								"~/Views/FlashCard/FactoidComponent.js",
+								"~/Views/FlashCard/FlashCardApplication.js",
+								"~/Views/FlashCard/FlashCard.js",
+								"~/Views/FlashCard/FlashCardComponent.js",
+								"~/Views/FlashCard/FlashCardPlayer.js",
+								"~/Views/FlashCard/FlashDeck.js",
+								"~/Views/FlashCard/FlashDeckComponent.js",
+								"~/Views/FlashCard/FlashCardApplicationComponent.js"
+								));
+
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 								"~/Content/bootstrap.css",
 								"~/Content/site.css"));

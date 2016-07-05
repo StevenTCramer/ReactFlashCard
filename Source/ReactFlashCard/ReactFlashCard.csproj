@@ -245,9 +245,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FlashCard.cs" />
+    <Compile Include="Controllers\Author.cs" />
+    <Compile Include="Controllers\Brain.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TestClass.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -260,6 +264,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\English\Hello.mp3" />
+    <Content Include="Content\Thai\Kah.mp3" />
+    <Content Include="Content\Thai\sabaaidii.mp3" />
+    <Content Include="Content\Thai\sawat1dii-2.mp3" />
+    <Content Include="Content\Thai\sawat1dii.mp3" />
+    <Content Include="Content\Thai\ผ้า.mp3" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -279,10 +289,15 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lodash.core.js" />
+    <Content Include="Scripts\lodash.core.min.js" />
+    <Content Include="Scripts\lodash.js" />
+    <Content Include="Scripts\lodash.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Brain\style.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -319,7 +334,23 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\HelloWorld\Index.cshtml" />
     <Content Include="Scripts\typings\react\README.md" />
-    <TypeScriptCompile Include="Scripts\Tutorial.tsx" />
+    <Content Include="Views\Author\Index.cshtml" />
+    <Content Include="Views\FlashCard\Index.cshtml" />
+    <Content Include="Views\Brain\Index.cshtml" />
+    <TypeScriptCompile Include="Scripts\typings\lodash\lodash.d.ts" />
+    <TypeScriptCompile Include="Views\Brain\AppComponent.tsx" />
+    <TypeScriptCompile Include="Views\FlashCard\Factoid.ts" />
+    <TypeScriptCompile Include="Views\FlashCard\FactoidComponent.tsx" />
+    <TypeScriptCompile Include="Views\FlashCard\FlashCard.ts" />
+    <TypeScriptCompile Include="Views\FlashCard\FlashCardApplicationComponent.tsx" />
+    <TypeScriptCompile Include="Views\FlashCard\FlashCardComponent.tsx" />
+    <TypeScriptCompile Include="Views\FlashCard\FlashCardApplication.ts" />
+    <TypeScriptCompile Include="Views\FlashCard\FlashCardPlayer.ts" />
+    <TypeScriptCompile Include="Views\FlashCard\FlashDeck.ts" />
+    <TypeScriptCompile Include="Views\FlashCard\FlashDeckComponent.tsx" />
+    <TypeScriptCompile Include="Views\HelloWorld\Test.tsx" />
+    <TypeScriptCompile Include="Views\Author\Test2.tsx" />
+    <TypeScriptCompile Include="Views\HelloWorld\Tutorial.tsx" />
     <TypeScriptCompile Include="Scripts\typings\react\react-addons-create-fragment.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\react\react-addons-css-transition-group.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\react\react-addons-linked-state-mixin.d.ts" />
@@ -337,6 +368,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\FlashCard\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
