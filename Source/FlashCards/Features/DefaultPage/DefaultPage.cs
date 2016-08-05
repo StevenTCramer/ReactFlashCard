@@ -1,7 +1,7 @@
-﻿namespace Tft.FlashCards.Features.FlashCardApplicationPage
+﻿namespace Tft.FlashCards.Features.DefaultPage
 {
   using System.Web.Mvc;
-  public class FlashCardApplicationPage
+  public class DefaultPage
   {
     public class FeatureController : Controller
     {

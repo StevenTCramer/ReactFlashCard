@@ -1,25 +1,15 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./Build/",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "jsx": "react",
     "preserveConstEnums": true,
     "removeComments": true
   },
   "exclude": [
     "node_modules"
-  ],
-  "files": [
-    "./typings/index.d.ts",
-    "./App/App.tsx",
-    "./App/FactoidComponent.tsx",
-    "./App/FlashCardApplication.ts",
-    "./App/FlashCardApplicationComponent.tsx",
-    "./App/FlashCardComponent.tsx",
-    "./App/FlashDeckComponent.tsx",
-    "./App/FlashMe.tsx"
   ]
 }

@@ -1,74 +1,80 @@
 ﻿import * as React from 'react';
-import * as Mui from 'material-ui';
+
+//Components
+import {FlashDeckComponent} from "./FlashDeckComponent";
+
+//Interfaces
+
+//Misc
+//import {ColorPalette} from "./ColorPalette";
 
 export class FlashCardApplicationComponent extends React.Component<{}, FlashCardApplication> {
-    thaiFlashDeck: FlashDeck;
+  thaiFlashDeck: FlashDeck;
 
-    XmlHttpRequest: XMLHttpRequest;
+  XmlHttpRequest: XMLHttpRequest;
 
-    constructor() {
-        super();
-        this.state = {
-            name:"",
-            factoidCategories:[],
-            flashCardPlayerOptionsList: [],
-            flashDecks: [],
-            guid: ""     
-        };
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      factoidCategories: [],
+      flashCardPlayerOptionsList: [],
+      flashDecks: [],
+      guid: ""
+    };
+  }
+
+  componentDidMount = (): void => {
+    this.getData();
+  }
+
+  componentWillUnmount = (): void => {
+    this.XmlHttpRequest.abort();
+  }
+
+
+  render() {
+    var divStyle: React.CSSProperties = {
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "pink"
+    };
+
+    var flashDeck: FlashDeck = this.state.flashDecks[0];
+    
+    return (
+      <div style={divStyle}>
+        <FlashDeckComponent {...this.state.flashDecks[0]}/>
+        Number of decks {this.state.flashDecks.length}
+      </div>
+    );
+  }
+
+  getData = (): void => {
+    this.XmlHttpRequest = new XMLHttpRequest();
+    this.XmlHttpRequest.open('GET', encodeURI('/FlashCardApplication/FlashCardApplicationFeature'));
+    this.XmlHttpRequest.onload = this.processData;
+    //function () {
+    //  if (this.XmlHttpRequest.status === 200) {
+    //    var data = JSON.parse(this.XmlHttpRequest.responseText);
+    //    this.setState(data);
+    //  }
+    //  else {
+    //    alert('Request failed.  Returned status of ' + this.XmlHttpRequest.status);
+    //  }
+    //};
+    this.XmlHttpRequest.send();
+  }
+
+  processData = (): void => {
+    if (this.XmlHttpRequest.status === 200) {
+      var data = JSON.parse(this.XmlHttpRequest.responseText);
+      this.setState(data);
     }
-
-    componentDidMount = (): void => {
-        this.getData();
+    else {
+      alert('Request failed.  Returned status of ' + this.XmlHttpRequest.status);
     }
-
-    componentWillUnmount = (): void => {
-        this.XmlHttpRequest.abort();
-    }
-
-    //<FlashDeckComponent {...this.state.flashDecks[0]}/>
-    render() {
-        var divStyle: React.CSSProperties = {
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "pink"
-        };
-
-
-        return (
-            <div style={divStyle}>
-          
-                <Mui.RaisedButton
-                    key={1}
-                    ref="btn1"
-                    label="Super Secret Password"
-                    primary={true} />
-            </div>            
-        );
-    }
-
-    getData = (): void => {
-        this.XmlHttpRequest = new XMLHttpRequest();
-        this.XmlHttpRequest.open('GET', encodeURI('/FlashCardApplication/FlashCardApplicationFeature'));
-        this.XmlHttpRequest.onload = function () {
-            if (this.XmlHttpRequest.status === 200) {
-                var data = JSON.parse(this.XmlHttpRequest.responseText);     
-                this.setState(data) ;
-            }
-            else {
-                alert('Request failed.  Returned status of ' + this.XmlHttpRequest.status);
-            }
-        };
-        this.XmlHttpRequest.send(); 
-    }
-}
-
-
-class TestComponent extends React.Component<{}, {}> {
-    render() {
-        return (            
-                <FlashCardApplicationComponent/>
-        );
-    }
+  }
 }

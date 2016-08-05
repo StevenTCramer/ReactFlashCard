@@ -203,6 +203,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Build\app.bundle.js" />
+    <Content Include="Features\DefaultPage\DefaultPage.cshtml">
+      <DependentUpon>DefaultPage.cs</DependentUpon>
+    </Content>
     <Content Include="Features\FlashCardApplicationPage\FlashCardApplicationPage.cshtml">
       <DependentUpon>FlashCardApplicationPage.cs</DependentUpon>
     </Content>
@@ -213,6 +216,8 @@
     <Content Include="Scripts\lodash.min.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
+    <Content Include="Static\Images\Tft.ico" />
+    <Content Include="Static\Style\Site.css" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
@@ -239,12 +244,14 @@
     <Compile Include="Entities\FlashCardPlayerOptions.cs" />
     <Compile Include="Entities\FlashDeck.cs" />
     <Compile Include="Entities\ModelInitializer.cs" />
-    <Compile Include="Features\Default\FeatureController.cs" />
+    <Compile Include="Features\TestPage\TestPage.cs" />
+    <Compile Include="Features\DefaultPage\DefaultPage.cs" />
     <Compile Include="Features\FlashCardApplicationPage\FlashCardApplicationPage.cs" />
     <Compile Include="Features\FlashCardApplication\FlashCardApplicationFeature.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Infrastructure\ControllerFactory.cs" />
     <Compile Include="Infrastructure\FeatureRazorViewEngine.cs" />
     <Compile Include="Infrastructure\Mapping\AutoMapperBootstrapper.cs" />
@@ -262,13 +269,13 @@
   <ItemGroup>
     <Content Include="Features\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Features\Default\Index.cshtml" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
     <Content Include="typings\globals\react-dom\typings.json" />
     <Content Include="typings\globals\react\typings.json" />
     <Content Include="typings\globals\material-ui\typings.json" />
+    <Content Include="Features\TestPage\TestPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -282,13 +289,28 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="App\App.tsx" />
+    <TypeScriptCompile Include="App\App.ts" />
+    <TypeScriptCompile Include="App\AppComponent.tsx" />
     <TypeScriptCompile Include="App\FactoidComponent.tsx" />
     <TypeScriptCompile Include="App\FlashCardApplication.ts" />
     <TypeScriptCompile Include="App\FlashCardApplicationComponent.tsx" />
     <TypeScriptCompile Include="App\FlashCardComponent.tsx" />
     <TypeScriptCompile Include="App\FlashDeckComponent.tsx" />
     <TypeScriptCompile Include="App\FlashMe.tsx" />
+    <TypeScriptCompile Include="App\Layout\ColorPalette.ts" />
+    <TypeScriptCompile Include="App\Layout\Footer\CopyrightComponent.tsx" />
+    <TypeScriptCompile Include="App\Layout\Footer\FooterComponent.tsx" />
+    <TypeScriptCompile Include="App\Layout\Footer\SocialComponent.tsx" />
+    <TypeScriptCompile Include="App\Layout\Header\AuthenticationComponent.tsx" />
+    <TypeScriptCompile Include="App\Layout\Header\HeaderComponent.tsx" />
+    <TypeScriptCompile Include="App\Layout\Header\LogoComponent.tsx" />
+    <TypeScriptCompile Include="App\Layout\Model.ts" />
+    <TypeScriptCompile Include="App\Layout\Navigation\NavigationComponent.tsx" />
+    <TypeScriptCompile Include="App\Layout\Navigation\NavigationItemComponent.tsx" />
+    <TypeScriptCompile Include="App\Layout\PageComponent.tsx" />
+    <TypeScriptCompile Include="App\Layout\SectionComponent.tsx" />
+    <TypeScriptCompile Include="App\Layout\SiteComponent.tsx" />
+    <TypeScriptCompile Include="App\Pages\HomePageComponent.tsx" />
     <TypeScriptCompile Include="App\TestComponent.tsx" />
     <TypeScriptCompile Include="typings\globals\material-ui\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\react-dom\index.d.ts" />
