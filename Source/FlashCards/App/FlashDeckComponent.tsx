@@ -1,5 +1,5 @@
-﻿import * as React from 'react';
-import { FlashCardComponent } from './FlashCardComponent';
+﻿import * as React from "react";
+import { FlashCardComponent } from "./FlashCardComponent";
 
 
 interface FlashDeckState {
@@ -24,24 +24,24 @@ export class FlashDeckComponent extends React.Component<FlashDeck, FlashDeckStat
       this.state.index++;
       this.setState(this.state);
     }
-  }
+  };
 
   previous = () => {
-    if (this.state.index != 0) {
+    if (this.state.index !== 0) {
       this.state.index--;
       this.setState(this.state);
     }
-  }
+  };
 
   nextButtonEnabled = (): boolean => {
     return (this.state.index < this.props.flashCards.length - 1);
-  }
+  };
 
   previousButtonEnabled = (): boolean => {
-    return (this.state.index != 0);
-  }
+    return (this.state.index !== 0);
+  };
 
-  render() {
+  render(): JSX.Element {
     var divStyle: React.CSSProperties = {
       display: "flex",
       flexDirection: "column",
@@ -66,7 +66,9 @@ export class FlashDeckComponent extends React.Component<FlashDeck, FlashDeckStat
     }
 
     return (
-      {output}
+      <div style={divStyle}>
+        {output}
+      </div>
     );
   }
 }

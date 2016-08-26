@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+﻿import * as React from "react";
 
 //Components
 import {FlashDeckComponent} from "./FlashDeckComponent";
@@ -26,14 +26,14 @@ export class FlashCardApplicationComponent extends React.Component<{}, FlashCard
 
   componentDidMount = (): void => {
     this.getData();
-  }
+  };
 
   componentWillUnmount = (): void => {
     this.XmlHttpRequest.abort();
-  }
+  };
 
 
-  render() {
+  render(): JSX.Element {
     var divStyle: React.CSSProperties = {
       display: "flex",
       flexDirection: "row",
@@ -43,7 +43,7 @@ export class FlashCardApplicationComponent extends React.Component<{}, FlashCard
     };
 
     var flashDeck: FlashDeck = this.state.flashDecks[0];
-    
+
     return (
       <div style={divStyle}>
         <FlashDeckComponent {...this.state.flashDecks[0]}/>
@@ -54,27 +54,17 @@ export class FlashCardApplicationComponent extends React.Component<{}, FlashCard
 
   getData = (): void => {
     this.XmlHttpRequest = new XMLHttpRequest();
-    this.XmlHttpRequest.open('GET', encodeURI('/FlashCardApplication/FlashCardApplicationFeature'));
+    this.XmlHttpRequest.open("GET", encodeURI("/FlashCardApplication/FlashCardApplicationFeature"));
     this.XmlHttpRequest.onload = this.processData;
-    //function () {
-    //  if (this.XmlHttpRequest.status === 200) {
-    //    var data = JSON.parse(this.XmlHttpRequest.responseText);
-    //    this.setState(data);
-    //  }
-    //  else {
-    //    alert('Request failed.  Returned status of ' + this.XmlHttpRequest.status);
-    //  }
-    //};
     this.XmlHttpRequest.send();
-  }
+  };
 
   processData = (): void => {
     if (this.XmlHttpRequest.status === 200) {
-      var data = JSON.parse(this.XmlHttpRequest.responseText);
+      var data: any = JSON.parse(this.XmlHttpRequest.responseText);
       this.setState(data);
+    } else {
+      alert("Request failed.  Returned status of " + this.XmlHttpRequest.status);
     }
-    else {
-      alert('Request failed.  Returned status of ' + this.XmlHttpRequest.status);
-    }
-  }
+  };
 }

@@ -18,6 +18,11 @@
 
 			System.Reflection.Assembly assembly = typeof(ControllerFactory).Assembly;
 			Type type = assembly.GetType(typeName);
+      if (type == null)
+      {
+        type = base.GetControllerType(aRequestContext, aFeatureName);
+      }
+
 			return type;
 		}
 
